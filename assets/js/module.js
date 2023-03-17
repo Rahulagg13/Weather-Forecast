@@ -33,16 +33,16 @@ export const getDate = function (dateUnix, timezone) {
 
 export const getTime = function (timeUnix, timezone) {
   const date = new Date((timeUnix + timezone) * 1000);
-  const hours = weekDayNames[date.getUTCHours()];
-  const minutes = monthNames[date.getUTCMinutes()];
-  const second = monthNames[date.getUTCSeconds()];
+  const hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+  const second = date.getUTCSeconds();
   const period = hours >= 12 ? "PM" : "AM";
   return `${hours % 12 || 12}:${minutes}:${period}`;
 };
 
 export const getHours = function (timeUnix, timezone) {
   const date = new Date((timeUnix + timezone) * 1000);
-  const hours = weekDayNames[date.getUTCHours()];
+  const hours = date.getUTCHours();
   const period = hours >= 12 ? "PM" : "AM";
   return `${hours % 12 || 12} ${period}`;
 };
